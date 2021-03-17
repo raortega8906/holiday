@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
+
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -283,6 +284,12 @@
     </div>
     <!-- /.content-wrapper -->
 
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->s
+
     <!-- Main Footer -->
     <footer class="text-center text-white" style="background-color: #f1f1f1;">
         <!-- Grid container -->
@@ -332,16 +339,11 @@
         <!-- Copyright -->
         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © {{date('Y')}} Copyright:
-            <a class="text-dark" href="#">Holidays</a>
+            <a class="text-dark" href="#">Rafael A. Ortega</a>
         </div>
         <!-- Copyright -->
     </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+    <!-- ./footer -->
 </div>
 <!-- ./wrapper -->
 
@@ -533,5 +535,6 @@
         })
     })
 </script>
+
 </body>
 </html>

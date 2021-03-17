@@ -249,6 +249,7 @@ to get the desired effect
     </aside>
 
 @yield('content')
+
 <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
@@ -304,12 +305,11 @@ to get the desired effect
         <!-- Copyright -->
         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © {{date('Y')}} Copyright:
-            <a class="text-dark" href="#">Holidays</a>
+            <a class="text-dark" href="#">Rafael A. Ortega</a>
         </div>
         <!-- Copyright -->
     </footer>
-
-
+    <!-- ./footer -->
 </div>
 <!-- ./wrapper -->
 

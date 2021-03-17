@@ -46,12 +46,13 @@ Route::middleware([CheckRolAdmin::class])->group(function () {
 
 });
 
-Route::get('/admin/holiday', function () {
-    return view('employee.holiday');
-});
-Route::post('admin', [App\Http\Controllers\HolidayController::class, 'create'])->name('holiday.create');
+Route::post('/admin', [App\Http\Controllers\HolidayController::class, 'create'])->name('holiday.create');
 
 Route::get('/admin/calendar', function () {
     return view('employee.calendar');
+});
+
+Route::get('/admin/holiday', function () {
+    return view('employee.holiday');
 });
 
