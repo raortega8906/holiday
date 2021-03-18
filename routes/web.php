@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckRolAdmin;
 
@@ -56,3 +57,4 @@ Route::get('/admin/holiday', function () {
     return view('employee.holiday');
 });
 
+Route::get('/mail', [MailController::class, 'getMail']);
