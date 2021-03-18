@@ -15,6 +15,7 @@ class Holiday extends Model
         'email',
         'reason',
         'beginning',
-        'finished'
+        'finished',
+        'status'
     ];
 }

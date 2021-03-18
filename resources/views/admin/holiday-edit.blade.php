@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="email">Correo electrónico:</label>
-                                        <input type="email" class="form-control" name="email" id="email" value="{{ old('title', $holiday->email) }}" disabled>
+                                        <input type="email" class="form-control" name="email" id="email" value="{{ old('title', $holiday->email) }}">
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="reason">Razón de la solicitud:</label>
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="status">Estado de la solicitud</label>
-                                        <select class="form-control" name="status" id="status">
+                                        <select class="form-control" name="status" id="status" value="{{ old('title', $holiday->status) }}">
                                             <option>Esperando</option>
                                             <option>Aprobadas</option>
                                             <option>Denegadas</option>

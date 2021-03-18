@@ -66,10 +66,10 @@
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="status">Estado de la solicitud</label>
-                                        <select class="form-control" name="status" id="status" disabled>
+                                        <select class="form-control" name="status" id="status">
                                             <option>Esperando</option>
-                                            <option>Aprobadas</option>
-                                            <option>Denegadas</option>
+                                            <option disabled>Aprobadas</option>
+                                            <option disabled>Denegadas</option>
                                         </select>
                                     </div>
                                     <input type="submit"

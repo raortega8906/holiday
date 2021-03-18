@@ -58,7 +58,7 @@
                                             <td>{{ $holiday->beginning }}</td>
                                             <td>{{ $holiday->finished }}</td>
                                             <td>
-                                                @if( $holiday->status == null )
+                                                @if( $holiday->status == 'Esperando' )
                                                     <span class="badge badge-secondary">Esperando</span>
                                                 @elseif( $holiday->status == 'Aprobadas' )
                                                     <span class="badge badge-success">Aprobadas</span>

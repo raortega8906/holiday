@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Mail;
+use App\Mail\ResponseMail;
 use App\Mail\TestMail;
 use App\Models\Holiday;
 use Illuminate\Http\Request;
@@ -25,6 +26,7 @@ class HolidayController extends Controller
             'reason' => 'required|min:5|max:500',
             'beginning' => 'required|min:5|max:500',
             'finished' => 'required|min:5|max:500',
+            'status' => 'required|min:5|max:50'
         ]);
 //         dd($dataValidated);
         Holiday::create($dataValidated);
@@ -43,13 +45,14 @@ class HolidayController extends Controller
     public function update(Request $request, Holiday $holiday)
     {
         $dataValidated = $request->validate([
-            'name' => 'required|min:5|max:500',
-            'email' => 'required|min:5|max:500',
-            'reason' => 'required|min:5|max:500',
-            'beginning' => 'required|min:5|max:500',
-            'finished' => 'required|min:5|max:500',
+            'status' => 'required|min:5|max:50'
         ]);
-        dd($dataValidated);
+//        dd($dataValidated);
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $status = $request->input('status');
+        $data = ['name' => $name, 'email' => $email, 'status' => $status];
+        Mail::to($email)->send(new ResponseMail($data));
         $holiday->update($dataValidated);
         return back()->with('status', 'Solicitud actualizada con éxito');
     }

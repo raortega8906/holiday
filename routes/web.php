@@ -47,7 +47,7 @@ Route::middleware([CheckRolAdmin::class])->group(function () {
 
     Route::get('/admin/{holiday}/edit', [App\Http\Controllers\HolidayController::class, 'edit'])->name('holiday.edit');
 
-    Route::put('/admin/update/', [App\Http\Controllers\HolidayController::class, 'update'])->name('holiday.update');
+    Route::put('/admin/{holiday}', [App\Http\Controllers\HolidayController::class, 'update'])->name('holiday.update');
 
 });
 
