@@ -58,8 +58,13 @@
                                             <td>{{ $holiday->beginning }}</td>
                                             <td>{{ $holiday->finished }}</td>
                                             <td>
-                                                <span class="badge badge-success">Aprobadas</span>
-                                                <span class="badge badge-danger">Denegadas</span>
+                                                @if( $holiday->name == 'Patti Vera' )
+                                                    <span class="badge badge-success">Aprobadas</span>
+                                                @elseif( $holiday->name == 'Adrian' )
+                                                    <span class="badge badge-danger">Denegadas</span>
+                                                @else
+                                                    <span class="badge badge-secondary">Esperando</span>
+                                                @endif
                                             </td>
                                             <td>
                                                 <form action="{{ route('holiday.destroy', $holiday) }}" method="POST">
