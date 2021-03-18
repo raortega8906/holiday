@@ -40,40 +40,41 @@
                                 </div>
                             </div>
                             <div class="card-body table-responsive p-0">
-                                <form action="{{ route('holiday.create') }}" method="POST">
+                                <form action="{{ route('holiday.update', $holiday->id) }}" method="POST">
+                                    @method('PUT')
                                     @csrf
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="name">Empleado:</label>
-                                        <input type="text" class="form-control" name="name" id="name" value="">
+                                        <input type="text" class="form-control" name="name" id="name" value="{{ old('title', $holiday->name) }}">
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="email">Correo electrónico:</label>
-                                        <input type="email" class="form-control" name="email" id="email" value="">
+                                        <input type="email" class="form-control" name="email" id="email" value="{{ old('title', $holiday->email) }}" disabled>
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="reason">Razón de la solicitud:</label>
-                                        <input type="text" class="form-control" name="reason" id="reason" value="">
+                                        <input type="text" class="form-control" name="reason" id="reason" value="{{ old('title', $holiday->reason) }}" disabled>
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="beginning">Fecha Inicio</label>
                                         <input type="date" class="form-control" name="beginning" id="beginning"
-                                               value="">
+                                               value="{{ old('title', $holiday->beginning) }}" disabled>
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="finished">Fecha Término</label>
                                         <input type="date" class="form-control" name="finished" id="finished"
-                                               value="">
+                                               value="{{ old('title', $holiday->finished) }}" disabled>
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="status">Estado de la solicitud</label>
-                                        <select class="form-control" name="status" id="status" disabled>
+                                        <select class="form-control" name="status" id="status">
                                             <option>Esperando</option>
                                             <option>Aprobadas</option>
                                             <option>Denegadas</option>
                                         </select>
                                     </div>
                                     <input type="submit"
-                                           value="Crear Solicitud"
+                                           value="Actualizar Solicitud"
                                            class="btn btn-success mb-3 mt-3 ml-3 row-cols-lg-3">
                                 </form>
                             </div>

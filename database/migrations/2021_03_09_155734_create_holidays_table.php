@@ -25,6 +25,7 @@ class CreateHolidaysTable extends Migration
             $table->string('reason', 100);
             $table->string('beginning', 100);
             $table->string('finished', 100);
+            $table->string('status',100)->nullable();
             $table->timestamps();
         });
     }

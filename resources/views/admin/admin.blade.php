@@ -58,12 +58,12 @@
                                             <td>{{ $holiday->beginning }}</td>
                                             <td>{{ $holiday->finished }}</td>
                                             <td>
-                                                @if( $holiday->name == 'Patti Vera' )
-                                                    <span class="badge badge-success">Aprobadas</span>
-                                                @elseif( $holiday->name == 'Adrian' )
-                                                    <span class="badge badge-danger">Denegadas</span>
-                                                @else
+                                                @if( $holiday->status == null )
                                                     <span class="badge badge-secondary">Esperando</span>
+                                                @elseif( $holiday->status == 'Aprobadas' )
+                                                    <span class="badge badge-success">Aprobadas</span>
+                                                @else
+                                                    <span class="badge badge-danger">Denegadas</span>
                                                 @endif
                                             </td>
                                             <td>
@@ -74,7 +74,7 @@
 {{--                                                        <i class="fas fa-folder"></i>--}}
 {{--                                                        View--}}
 {{--                                                    </a>--}}
-                                                    <a class="btn btn-info btn-sm" href="#">
+                                                    <a class="btn btn-info btn-sm" href="{{ route('holiday.edit', $holiday) }}">
                                                         <i class="fas fa-pencil-alt"></i>
                                                         Edit
                                                     </a>

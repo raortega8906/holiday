@@ -45,9 +45,13 @@ Route::middleware([CheckRolAdmin::class])->group(function () {
 
     Route::delete('admin/{holiday}', [App\Http\Controllers\HolidayController::class, 'destroy'])->name('holiday.destroy');
 
+    Route::get('/admin/{holiday}/edit', [App\Http\Controllers\HolidayController::class, 'edit'])->name('holiday.edit');
+
+    Route::put('/admin/update/', [App\Http\Controllers\HolidayController::class, 'update'])->name('holiday.update');
+
 });
 
-Route::post('/admin', [App\Http\Controllers\HolidayController::class, 'create'])->name('holiday.create');
+Route::post('/admin/create', [App\Http\Controllers\HolidayController::class, 'create'])->name('holiday.create');
 
 Route::get('/admin/calendar', function () {
     return view('employee.calendar');
