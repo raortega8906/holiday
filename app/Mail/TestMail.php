@@ -32,7 +32,7 @@ class TestMail extends Mailable
     {
         return $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
             ->view('admin.mailbox.testmail')
-            ->subject('Titulo del correo')
+            ->subject('Nueva solicitud de vacaciones')
             ->with($this->data);
     }
 }

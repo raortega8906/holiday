@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
+use App\Mail\TestMail;
 use App\Models\Holiday;
 use Illuminate\Http\Request;
 
@@ -28,6 +30,10 @@ class HolidayController extends Controller
         ]);
         // dd($dataValidated);
         Holiday::create($dataValidated);
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $data = ['admin' => 'Admin', 'name' => $name, 'email' => $email];
+        Mail::to('ceiforestudios87@gmail.com')->send(new TestMail($data));
         return back()->with('status', 'Post creado con éxito');
     }
 
