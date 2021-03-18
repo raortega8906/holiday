@@ -27,7 +27,18 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card card-secondary">
+                            <div class="card-header border-0">
+                                <h3 class="card-title">Solicitud</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"
+                                            data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-minus"></i></button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove"
+                                            data-toggle="tooltip" title="Remove">
+                                        <i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
                             <div class="card-body table-responsive p-0">
                                 <form action="{{ route('holiday.create') }}" method="POST">
                                     @csrf
@@ -53,8 +64,9 @@
                                         <input type="date" class="form-control" name="finished" id="finished"
                                                value="">
                                     </div>
-                                    <input type="submit" value="Enviar"
-                                           class="btn btn-primary mb-3 mt-3 ml-3 row-cols-lg-3">
+                                    <input type="submit"
+                                           value="Crear Solicitud"
+                                           class="btn btn-success mb-3 mt-3 ml-3 row-cols-lg-3">
                                 </form>
                             </div>
                         </div>
