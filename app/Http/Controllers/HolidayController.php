@@ -14,7 +14,7 @@ class HolidayController extends Controller
     public function index()
     {
         // $holidays = Holiday::all();
-        $holidays = Holiday::orderBy('id', 'desc')->paginate(8);
+        $holidays = Holiday::orderBy('id', 'desc')->paginate(10);
         return view('admin.admin', ['holidays' => $holidays]);
     }
 
