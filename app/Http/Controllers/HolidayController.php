@@ -37,7 +37,7 @@ class HolidayController extends Controller
             Mail::to('ceiforestudios87@gmail.com')->send(new TestMail($data));
         }
         else{
-            return back()->with('status', 'Error al introducir las fechas');
+            return back()->with('status-date', 'Error al introducir las fechas');
         }
         return back()->with('status', 'Solicitud creada con éxito');
     }
@@ -53,12 +53,12 @@ class HolidayController extends Controller
             'status' => 'required|min:5|max:50'
         ]);
         // Activar este codigo solo para probar en local... descomentarlo en produccion...
+        $holiday->update($dataValidated);
         $name = $request->input('name');
         $email = $request->input('email');
         $status = $request->input('status');
         $data = ['name' => $name, 'email' => $email, 'status' => $status];
         Mail::to($email)->send(new ResponseMail($data));
-        $holiday->update($dataValidated);
         return back()->with('status', 'Solicitud actualizada con éxito');
     }
 

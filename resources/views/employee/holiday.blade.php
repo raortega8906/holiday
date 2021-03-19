@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -22,6 +23,16 @@
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
+
+        @if (session('status'))
+            <div class="alert alert-default-success">
+                {{ session('status') }}
+            </div>
+        @elseif (session('status-date'))
+            <div class="alert alert-default-danger">
+                {{ session('status-date') }}
+            </div>
+        @endif
 
         <div class="content">
             <div class="container-fluid">

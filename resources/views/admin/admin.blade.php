@@ -22,6 +22,9 @@
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
+
+        @include('admin.partials.session-flash-status')
+
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">

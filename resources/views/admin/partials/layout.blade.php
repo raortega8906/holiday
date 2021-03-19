@@ -219,7 +219,7 @@ to get the desired effect
         <!-- /.sidebar -->
     </aside>
 
-@yield('content')
+    @yield('content')
 
 <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
