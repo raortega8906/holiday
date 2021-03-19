@@ -206,35 +206,35 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-envelope"></i>
-                            <p>
-                                Mailbox
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{url('/admin/inbox')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Inbox</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{url('/admin/compose')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Compose</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{url('/admin/read')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Read</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    {{--                    <li class="nav-item has-treeview">--}}
+                    {{--                        <a href="#" class="nav-link">--}}
+                    {{--                            <i class="nav-icon far fa-envelope"></i>--}}
+                    {{--                            <p>--}}
+                    {{--                                Mailbox--}}
+                    {{--                                <i class="fas fa-angle-left right"></i>--}}
+                    {{--                            </p>--}}
+                    {{--                        </a>--}}
+                    {{--                        <ul class="nav nav-treeview">--}}
+                    {{--                            <li class="nav-item">--}}
+                    {{--                                <a href="{{url('/admin/inbox')}}" class="nav-link">--}}
+                    {{--                                    <i class="far fa-circle nav-icon"></i>--}}
+                    {{--                                    <p>Inbox</p>--}}
+                    {{--                                </a>--}}
+                    {{--                            </li>--}}
+                    {{--                            <li class="nav-item">--}}
+                    {{--                                <a href="{{url('/admin/compose')}}" class="nav-link">--}}
+                    {{--                                    <i class="far fa-circle nav-icon"></i>--}}
+                    {{--                                    <p>Compose</p>--}}
+                    {{--                                </a>--}}
+                    {{--                            </li>--}}
+                    {{--                            <li class="nav-item">--}}
+                    {{--                                <a href="{{url('/admin/read')}}" class="nav-link">--}}
+                    {{--                                    <i class="far fa-circle nav-icon"></i>--}}
+                    {{--                                    <p>Read</p>--}}
+                    {{--                                </a>--}}
+                    {{--                            </li>--}}
+                    {{--                        </ul>--}}
+                    {{--                    </li>--}}
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -261,7 +261,11 @@
             </div><!-- /.container-fluid -->
         </section>
 
-        <!-- Main content -->
+    @php
+        $global = \App\Http\Controllers\HolidayController::show();
+    @endphp
+
+    <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -435,51 +439,20 @@
             'themeSystem': 'bootstrap',
             //Random default events
             events: [
-                // {
-                //     title: 'All Day Event',
-                //     start: new Date(y, m, 1),
-                //     backgroundColor: '#f56954', //red
-                //     borderColor: '#f56954', //red
-                //     allDay: true
-                // },
-                // {
-                //     title: 'Long Event',
-                //     start: new Date(y, m, d - 5),
-                //     end: new Date(y, m, d - 2),
-                //     backgroundColor: '#f39c12', //yellow
-                //     borderColor: '#f39c12' //yellow
-                // },
-                // {
-                //     title: 'Meeting',
-                //     start: new Date(y, m, d, 10, 30),
-                //     allDay: false,
-                //     backgroundColor: '#0073b7', //Blue
-                //     borderColor: '#0073b7' //Blue
-                // },
-                // {
-                //     title: 'Lunch',
-                //     start: new Date(y, m, d, 12, 0),
-                //     end: new Date(y, m, d, 14, 0),
-                //     allDay: false,
-                //     backgroundColor: '#00c0ef', //Info (aqua)
-                //     borderColor: '#00c0ef' //Info (aqua)
-                // },
-                // {
-                //     title: 'Birthday Party',
-                //     start: new Date(y, m, d + 1, 19, 0),
-                //     end: new Date(y, m, d + 1, 22, 30),
-                //     allDay: false,
-                //     backgroundColor: '#00a65a', //Success (green)
-                //     borderColor: '#00a65a' //Success (green)
-                // },
-                // {
-                //     title: 'Click for Google',
-                //     start: new Date(y, m, 28),
-                //     end: new Date(y, m, 29),
-                //     url: 'http://google.com/',
-                //     backgroundColor: '#3c8dbc', //Primary (light-blue)
-                //     borderColor: '#3c8dbc' //Primary (light-blue)
-                // }
+                    <?php
+                    foreach ($global['holidays'] as $key => $holiday) {
+                    if ($holiday->email == Auth::user()->email && $holiday->status == 'Aprobadas') {
+                    ?>
+
+                {
+                    title: '<?php echo $holiday->reason; ?>',
+                    start: '<?php echo $holiday->beginning; ?>',
+                    end: '<?php echo $holiday->finished; ?>',
+                },
+
+                <?php
+                }}
+                ?>
             ],
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!

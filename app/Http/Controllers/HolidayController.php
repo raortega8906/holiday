@@ -13,8 +13,8 @@ class HolidayController extends Controller
 
     public function index()
     {
+        // $holidays = Holiday::all();
         $holidays = Holiday::orderBy('id', 'desc')->paginate(8);
-//        $holidays = Holiday::all();
         return view('admin.admin', ['holidays' => $holidays]);
     }
 
@@ -28,7 +28,7 @@ class HolidayController extends Controller
             'finished' => 'required|min:5|max:500',
             'status' => 'required|min:5|max:50'
         ]);
-//         dd($dataValidated);
+        // dd($dataValidated);
         Holiday::create($dataValidated);
         $name = $request->input('name');
         $email = $request->input('email');
@@ -47,7 +47,7 @@ class HolidayController extends Controller
         $dataValidated = $request->validate([
             'status' => 'required|min:5|max:50'
         ]);
-//        dd($dataValidated);
+        // Activar este codigo solo para probar en local... descomentarlo en produccion...
         $name = $request->input('name');
         $email = $request->input('email');
         $status = $request->input('status');
@@ -59,8 +59,14 @@ class HolidayController extends Controller
 
     public function destroy(Holiday $holiday)
     {
-//        $holiday = Holiday::findOrFail($id);
+        // $holiday = Holiday::findOrFail($id);
         $holiday->delete();
         return back()->with('status', 'Solicitud eliminada con éxito');
+    }
+
+    public static function show()
+    {
+        $global['holidays'] = Holiday::all();
+        return $global;
     }
 }

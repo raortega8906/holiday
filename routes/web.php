@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckRolAdmin;
 
@@ -29,17 +28,17 @@ Route::middleware([CheckRolAdmin::class])->group(function () {
         return view('admin.admin');
     });
 
-    Route::get('/admin/inbox', function () {
-        return view('admin.mailbox.inbox');
-    });
-
-    Route::get('/admin/compose', function () {
-        return view('admin.mailbox.compose');
-    });
-
-    Route::get('/admin/read', function () {
-        return view('admin.mailbox.read');
-    });
+//    Route::get('/admin/inbox', function () {
+//        return view('admin.mailbox.inbox');
+//    });
+//
+//    Route::get('/admin/compose', function () {
+//        return view('admin.mailbox.compose');
+//    });
+//
+//    Route::get('/admin/read', function () {
+//        return view('admin.mailbox.read');
+//    });
 
     Route::get('admin', [App\Http\Controllers\HolidayController::class, 'index'])->name('holiday.index');
 
@@ -61,4 +60,3 @@ Route::get('/admin/holiday', function () {
     return view('employee.holiday');
 });
 
-Route::get('/mail', [MailController::class, 'getMail']);
