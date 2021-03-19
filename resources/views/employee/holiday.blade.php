@@ -28,9 +28,9 @@
             <div class="alert alert-default-success">
                 {{ session('status') }}
             </div>
-        @elseif (session('status-date'))
+        @elseif (session('status-error'))
             <div class="alert alert-default-danger">
-                {{ session('status-date') }}
+                {{ session('status-error') }}
             </div>
         @endif
 
@@ -56,24 +56,39 @@
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="name">Empleado:</label>
                                         <input type="text" class="form-control" name="name" id="name" value="">
+                                        @error('name')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="email">Correo electrónico:</label>
                                         <input type="email" class="form-control" name="email" id="email" value="">
+                                        @error('email')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="reason">Razón de la solicitud:</label>
                                         <input type="text" class="form-control" name="reason" id="reason" value="">
+                                        @error('reason')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="beginning">Fecha Inicio</label>
                                         <input type="date" class="form-control" name="beginning" id="beginning"
                                                value="">
+                                        @error('beginning')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="finished">Fecha Término</label>
                                         <input type="date" class="form-control" name="finished" id="finished"
                                                value="">
+                                        @error('finished')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="status">Estado de la solicitud</label>

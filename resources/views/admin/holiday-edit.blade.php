@@ -23,7 +23,15 @@
         </div>
         <!-- /.content-header -->
 
-        @include('admin.partials.session-flash-status')
+        @if (session('status'))
+            <div class="alert alert-default-success">
+                {{ session('status') }}
+            </div>
+        @elseif (session('status-error'))
+            <div class="alert alert-default-danger">
+                {{ session('status-error') }}
+            </div>
+        @endif
 
         <div class="content">
             <div class="container-fluid">

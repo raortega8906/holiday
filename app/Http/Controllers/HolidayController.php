@@ -34,12 +34,12 @@ class HolidayController extends Controller
             $name = $request->input('name');
             $email = $request->input('email');
             $data = ['admin' => 'Admin', 'name' => $name, 'email' => $email];
-            Mail::to('ceiforestudios87@gmail.com')->send(new TestMail($data));
+//            Mail::to('ceiforestudios87@gmail.com')->send(new TestMail($data));
+            return back()->with('status', 'Solicitud creada con éxito');
         }
         else{
-            return back()->with('status-date', 'Error al introducir las fechas');
+            return back()->with('status-error', 'Error al introducir las fechas');
         }
-        return back()->with('status', 'Solicitud creada con éxito');
     }
 
     public function edit(Holiday $holiday)
@@ -52,14 +52,19 @@ class HolidayController extends Controller
         $dataValidated = $request->validate([
             'status' => 'required|min:5|max:50'
         ]);
-        // Activar este codigo solo para probar en local... descomentarlo en produccion...
-        $holiday->update($dataValidated);
-        $name = $request->input('name');
-        $email = $request->input('email');
         $status = $request->input('status');
-        $data = ['name' => $name, 'email' => $email, 'status' => $status];
-        Mail::to($email)->send(new ResponseMail($data));
-        return back()->with('status', 'Solicitud actualizada con éxito');
+        if ($status != 'Esperando'){
+            $holiday->update($dataValidated);
+            $name = $request->input('name');
+            $email = $request->input('email');
+            $data = ['name' => $name, 'email' => $email, 'status' => $status];
+//            Mail::to($email)->send(new ResponseMail($data));
+            return back()->with('status', 'Solicitud actualizada con éxito');
+        }
+        else{
+            return back()->with('status-error', 'Solicitud sin respuesta');
+        }
+
     }
 
     public function destroy(Holiday $holiday)
