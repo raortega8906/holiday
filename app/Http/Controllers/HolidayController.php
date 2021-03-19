@@ -13,7 +13,6 @@ class HolidayController extends Controller
 
     public function index()
     {
-        // $holidays = Holiday::all();
         $holidays = Holiday::orderBy('id', 'desc')->paginate(10);
         return view('admin.admin', ['holidays' => $holidays]);
     }
@@ -28,12 +27,18 @@ class HolidayController extends Controller
             'finished' => 'required|min:5|max:500',
             'status' => 'required|min:5|max:50'
         ]);
-        // dd($dataValidated);
-        Holiday::create($dataValidated);
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $data = ['admin' => 'Admin', 'name' => $name, 'email' => $email];
-        Mail::to('ceiforestudios87@gmail.com')->send(new TestMail($data));
+        $ini = strtotime($request->input('beginning'));
+        $end = strtotime($request->input('finished'));
+        if ($ini < $end){
+            Holiday::create($dataValidated);
+            $name = $request->input('name');
+            $email = $request->input('email');
+            $data = ['admin' => 'Admin', 'name' => $name, 'email' => $email];
+            Mail::to('ceiforestudios87@gmail.com')->send(new TestMail($data));
+        }
+        else{
+            return back()->with('status', 'Error al introducir las fechas');
+        }
         return back()->with('status', 'Solicitud creada con éxito');
     }
 
