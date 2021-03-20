@@ -23,9 +23,9 @@
         </div>
         <!-- /.content-header -->
 
-        @include('admin.partials.session-flash-status')
+    @include('admin.partials.session-flash-status')
 
-        <!-- Main content -->
+    <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -34,9 +34,11 @@
                             <div class="card-header border-0">
                                 <h3 class="card-title">Vacaciones</h3>
                                 <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"
+                                            data-toggle="tooltip" title="Collapse">
                                         <i class="fas fa-minus"></i></button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove"
+                                            data-toggle="tooltip" title="Remove">
                                         <i class="fas fa-times"></i></button>
                                 </div>
                             </div>
@@ -70,22 +72,20 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <form action="{{ route('holiday.destroy', $holiday) }}" method="POST">
-                                                    @method('DELETE')
-                                                    @csrf
-{{--                                                    <a class="btn btn-primary btn-sm" href="#">--}}
-{{--                                                        <i class="fas fa-folder"></i>--}}
-{{--                                                        View--}}
-{{--                                                    </a>--}}
-                                                    <a class="btn btn-info btn-sm" href="{{ route('holiday.edit', $holiday) }}">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                        Edit
-                                                    </a>
-                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="fas fa-trash"></i>
-                                                        Borrar
-                                                    </button>
-                                                </form>
+{{--                                                <a class="btn btn-primary btn-sm" href="#">--}}
+{{--                                                    <i class="fas fa-folder"></i>--}}
+{{--                                                    View--}}
+{{--                                                </a>--}}
+                                                <a class="btn btn-info btn-sm"
+                                                   href="{{ route('holiday.edit', $holiday) }}">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                    Edit
+                                                </a>
+                                                <button data-toggle="modal" data-target="#deleteModal"
+                                                        data-id="{{ $holiday->id }}" class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                    Borrar
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -93,8 +93,41 @@
                                 </table>
                             </div>
                         </div>
-                    {{ $holidays->links() }}
-                    <!-- /.card -->
+
+                        {{ $holidays->links() }}
+
+                        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalLabel"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Seguro desea borrar el registro selecccionado?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
+                                            Cerrar
+                                        </button>
+                                        <form id="formDelete" data-action="{{ route('holiday.destroy', 0) }}"
+                                              method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                                Borrar
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card -->
                     </div>
                     <!-- /.col-md-12 -->
                 </div>
@@ -105,5 +138,23 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+    <script>
+        window.onload = function () {
+            $('#deleteModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var id = button.data('id') // Extract info from data-* attributes
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                action = $('#formDelete').attr('data-action').slice(0, -1) // Elimina la ultima posicion del http, en este caso el 0 pasado como parametro.
+                action += id
+                console.log(action)
+                $('#formDelete').attr('action', action)
+
+                var modal = $(this)
+                modal.find('.modal-title').text('Vas a borrar la Solicitud: ' + id)
+            });
+        };
+    </script>
 
 @endsection

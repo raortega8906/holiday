@@ -233,7 +233,7 @@
         </section>
 
     @php
-        $global = \App\Http\Controllers\HolidayController::show();
+        $global = \App\Http\Controllers\HolidayController::showCalendar();
     @endphp
 
     <!-- Main content -->

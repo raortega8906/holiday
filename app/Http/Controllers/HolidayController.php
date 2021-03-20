@@ -74,7 +74,7 @@ class HolidayController extends Controller
         return back()->with('status', 'Solicitud eliminada con éxito');
     }
 
-    public static function show()
+    public static function showCalendar()
     {
         $global['holidays'] = Holiday::all();
         return $global;
