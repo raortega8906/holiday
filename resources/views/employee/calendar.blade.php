@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -233,7 +233,7 @@
         </section>
 
     @php
-        $global = \App\Http\Controllers\HolidayController::showCalendar();
+        $global = \App\Http\Controllers\HolidayController::showHolidays();
     @endphp
 
     <!-- Main content -->
@@ -263,7 +263,7 @@
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
     </aside>
-    <!-- /.control-sidebar -->s
+    <!-- /.control-sidebar -->
 
     <!-- Main Footer -->
     <footer class="text-center text-white" style="background-color: #f1f1f1;">
@@ -411,19 +411,20 @@
             //Random default events
             events: [
                     <?php
-                    foreach ($global['holidays'] as $key => $holiday) {
-                    if ($holiday->email == Auth::user()->email && $holiday->status == 'Aprobadas') {
+                        foreach ($global['holidays'] as $key => $holiday) {
+                            if ($holiday->email == Auth::user()->email && $holiday->status == 'Aprobadas') {
+                                $end = date('Y-m-d', strtotime($holiday->finished."+ 1 days"));
                     ?>
-
-                {
-                    title: '<?php echo $holiday->reason; ?>',
-                    start: '<?php echo $holiday->beginning; ?>',
-                    end: '<?php echo $holiday->finished; ?>',
-                },
-
-                <?php
-                }}
-                ?>
+                                {
+                                    title:  '<?php echo $holiday->reason; ?>',
+                                    start:  '<?php echo $holiday->beginning; ?>',
+                                    end:    '<?php echo $end; ?>',
+                                    allDay:  true
+                                },
+                    <?php
+                            }
+                        }
+                    ?>
             ],
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!

@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class HolidayController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -29,6 +33,7 @@ class HolidayController extends Controller
         ]);
         $ini = strtotime($request->input('beginning'));
         $end = strtotime($request->input('finished'));
+//        dd($end);
         if ($ini < $end){
             Holiday::create($dataValidated);
             $name = $request->input('name');
@@ -74,7 +79,7 @@ class HolidayController extends Controller
         return back()->with('status', 'Solicitud eliminada con éxito');
     }
 
-    public static function showCalendar()
+    public static function showHolidays()
     {
         $global['holidays'] = Holiday::all();
         return $global;
