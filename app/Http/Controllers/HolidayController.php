@@ -33,13 +33,12 @@ class HolidayController extends Controller
         ]);
         $ini = strtotime($request->input('beginning'));
         $end = strtotime($request->input('finished'));
-//        dd($end);
         if ($ini < $end){
             Holiday::create($dataValidated);
             $name = $request->input('name');
             $email = $request->input('email');
             $data = ['admin' => 'Admin', 'name' => $name, 'email' => $email];
-//            Mail::to('ceiforestudios87@gmail.com')->send(new TestMail($data));
+            Mail::to('ceiforestudios87@gmail.com')->send(new TestMail($data));
             return back()->with('status', 'Solicitud creada con éxito');
         }
         else{
@@ -63,7 +62,7 @@ class HolidayController extends Controller
             $name = $request->input('name');
             $email = $request->input('email');
             $data = ['name' => $name, 'email' => $email, 'status' => $status];
-//            Mail::to($email)->send(new ResponseMail($data));
+            Mail::to($email)->send(new ResponseMail($data));
             return back()->with('status', 'Solicitud actualizada con éxito');
         }
         else{
