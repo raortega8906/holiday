@@ -35,7 +35,7 @@
                 <a href="{{ url('/admin/calendar') }}" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ url('/admin/') }}" class="nav-link">Admin</a>
+                <a href="{{ url('/admin') }}" class="nav-link">Admin</a>
             </li>
         </ul>
 
