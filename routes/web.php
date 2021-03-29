@@ -39,20 +39,16 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-        // Route::get('/admin', function () {
-        //     return view('admin.admin');
-        // });
-
         Route::get('/admin/user/create', function () {
             return view('admin.user.create');
         });
 
         // Rutas de usuarios
-        Route::get('admin/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+        Route::get('/admin/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
 
         Route::post('/admin/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
 
-        Route::delete('admin/user/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
+        Route::delete('/admin/user/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
 
         Route::get('/admin/user/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
 
@@ -61,9 +57,9 @@ Route::middleware('auth')->group(function () {
         Route::put('/admin/user/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 
         // Rutas de vacaciones
-        Route::get('admin', [App\Http\Controllers\HolidayController::class, 'index'])->name('holiday.index');
+        Route::get('/admin', [App\Http\Controllers\HolidayController::class, 'index'])->name('holiday.index');
 
-        Route::delete('admin/{holiday}', [App\Http\Controllers\HolidayController::class, 'destroy'])->name('holiday.destroy');
+        Route::delete('/admin/{holiday}', [App\Http\Controllers\HolidayController::class, 'destroy'])->name('holiday.destroy');
 
         Route::get('/admin/{holiday}/edit', [App\Http\Controllers\HolidayController::class, 'edit'])->name('holiday.edit');
 

@@ -64,7 +64,7 @@
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->rol_id }}</td>
                                             <td>
-                                                <a class="btn btn-primary btn-sm" 
+                                                <a class="btn btn-primary btn-sm"
                                                 href="{{ route('user.show', $user) }}">
                                                     <i class="fas fa-folder"></i>
                                                     View

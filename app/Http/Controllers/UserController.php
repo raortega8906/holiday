@@ -23,7 +23,7 @@ class UserController extends Controller
         $dataValidated = $request->validate([
             'name' => 'required|min:5|max:500',
             'email' => 'required|min:5|max:500',
-            'password' => 'required|unique|min:5|max:500',
+            'password' => 'required|min:5|max:500',
             'rol_id' => 'required|min:5|max:500'
         ]);
         dd(User::create($dataValidated));
@@ -46,7 +46,8 @@ class UserController extends Controller
             'rol_id' => 'required|min:5|max:50'
         ]);
         $user->update($dataValidated);
-        return back()->with('status', 'Solicitud actualizada con éxito');
+        dd($user);
+        return back()->with('status', 'Usuario actualizado con éxito');
     }
 
     public function destroy(User $user)
