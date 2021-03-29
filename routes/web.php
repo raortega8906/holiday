@@ -23,18 +23,20 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
 
-    // Ruta del calendario
+    // Ruta de vista del calendario (Empleados)
     Route::get('/admin/calendar', function () {
         return view('employee.calendar');
     });
 
-    // Ruta de creación de vacaciones
+    // Ruta de vista de creación de vacaciones (Empleados)
     Route::get('/admin/holiday', function () {
         return view('employee.holiday');
     });
 
+    // Ruta de creación de vacaciones (Empleados)
     Route::post('/admin/create', [App\Http\Controllers\HolidayController::class, 'create'])->name('holiday.create');
 
+    // Solo Admin
     Route::middleware([CheckRolAdmin::class])->group(function () {
 
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
