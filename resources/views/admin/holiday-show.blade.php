@@ -64,10 +64,10 @@
                                 </div>
                                 <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                     <label for="status">Estado de la solicitud</label>
-                                    <select class="form-control" name="status" id="status" value="{{ old('title', $holiday->status) }}" disabled>
+                                    <select class="form-control" name="status" id="status" value="" disabled>
                                         <option>Esperando</option>
-                                        <option>Aprobadas</option>
-                                        <option>Denegadas</option>
+                                        <option {{ $holiday->status == 'Aprobadas' ? 'selected="selected"' : '' }}>Aprobadas</option>
+                                        <option {{ $holiday->status == 'Denegadas' ? 'selected="selected"' : '' }}>Denegadas</option>
                                     </select>
                                 </div>
                             </div>

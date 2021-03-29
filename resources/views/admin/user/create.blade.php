@@ -67,6 +67,13 @@
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
+                                        <label for="password">Contraseña:</label>
+                                        <input type="text" class="form-control" name="password" id="password" value="">
+                                        @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="rol_id">Rol del empleado</label>
                                         <select class="form-control" name="rol_id" id="rol_id">
                                             <option>2</option>

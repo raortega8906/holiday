@@ -9,13 +9,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">User Create</h1>
+                        <h1 class="m-0 text-dark">User Edit</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/admin/calendar">Home</a></li>
                             <li class="breadcrumb-item active">User</li>
-                            <li class="breadcrumb-item active">Create</li>
+                            <li class="breadcrumb-item active">Edit</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -29,7 +29,7 @@
                     <div class="col-lg-12">
                         <div class="card card-secondary">
                             <div class="card-header border-0">
-                                <h3 class="card-title">Crear Empleado</h3>
+                                <h3 class="card-title">Actualizar Rol Empleado</h3>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"
                                             data-toggle="tooltip" title="Collapse">
@@ -52,10 +52,14 @@
                                         <input type="email" class="form-control" name="email" id="email" value="{{ old('title', $user->email) }}" disabled>
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
-                                        <label for="rol_id">Estado de la solicitud</label>
+                                        <label for="password">Contraseña:</label>
+                                        <input type="text" class="form-control" name="password" id="password" value="{{ old('title', '********') }}" disabled>
+                                    </div>
+                                    <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
+                                        <label for="rol_id">Rol del empleado</label>
                                         <select class="form-control" name="rol_id" id="rol_id">
-                                            <option>2</option>
-                                            <option>1</option>
+                                            <option value="2">2</option>
+                                            <option value="1" {{ $user->rol_id == 1 ? 'selected="selected"' : '' }}>1</option>
                                         </select>
                                     </div>
                                     <input type="submit"
