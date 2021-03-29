@@ -188,7 +188,7 @@ to get the desired effect
                                 Users
                             </p>
                         </a>
-                    </li>     
+                    </li>
                     <li class="nav-item">
                         <a href="{{url('/admin/calendar')}}" class="nav-link">
                             <i class="nav-icon fas fa-calendar-alt"></i>
