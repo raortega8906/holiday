@@ -46,6 +46,11 @@ class HolidayController extends Controller
         }
     }
 
+    public function show(Holiday $holiday)
+    {
+        return view('admin.holiday-show', ['holiday' => $holiday]);
+    }
+
     public function edit(Holiday $holiday)
     {
         return view('admin.holiday-edit', ['holiday' => $holiday]);

@@ -9,19 +9,23 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Vacation History</h1>
+                        <h1 class="m-0 text-dark">Users</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/admin/calendar">Home</a></li>
-                            <li class="breadcrumb-item active">Holidays</li>
-                            <li class="breadcrumb-item active">Vacation History</li>
+                            <li class="breadcrumb-item active">User</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
+
+        <a class="btn btn-success btn-sm mb-3 ml-3"  href="{{url('/admin/user/create')}}">
+            <i class="fas fa-user-alt"></i>
+            Crear
+        </a>
 
     @include('admin.partials.session-flash-status')
 
@@ -32,7 +36,7 @@
                     <div class="col-lg-12">
                         <div class="card card-secondary">
                             <div class="card-header border-0">
-                                <h3 class="card-title">Vacaciones</h3>
+                                <h3 class="card-title">Users</h3>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"
                                             data-toggle="tooltip" title="Collapse">
@@ -46,43 +50,32 @@
                                 <table class="table table-striped table-valign-middle">
                                     <thead>
                                     <tr>
-                                        <th>Empleado</th>
-                                        <th>Correo electrónico</th>
-                                        <th>Razón Solicitud</th>
-                                        <th>Inicio Vacaciones</th>
-                                        <th>Fin Vacaciones</th>
-                                        <th>Estado Solicitud</th>
+                                        <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Correo Electrónico</th>
+                                        <th>Rol del Empleado</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($holidays as $holiday)
+                                    @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ $holiday->name }}</td>
-                                            <td>{{ $holiday->email  }}</td>
-                                            <td>{{ $holiday->reason }}</td>
-                                            <td>{{ $holiday->beginning }}</td>
-                                            <td>{{ $holiday->finished }}</td>
+                                            <td>{{ $user->id }}</td>
+                                            <td>{{ $user->name  }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->rol_id }}</td>
                                             <td>
-                                                @if( $holiday->status == 'Esperando' )
-                                                    <span class="badge badge-secondary">Esperando</span>
-                                                @elseif( $holiday->status == 'Aprobadas' )
-                                                    <span class="badge badge-success">Aprobadas</span>
-                                                @else
-                                                    <span class="badge badge-danger">Denegadas</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                               <a class="btn btn-primary btn-sm" href="{{ route('holiday.show', $holiday) }}">
+                                                <a class="btn btn-primary btn-sm" 
+                                                href="{{ route('user.show', $user) }}">
                                                     <i class="fas fa-folder"></i>
                                                     View
                                                 </a>
                                                 <a class="btn btn-info btn-sm"
-                                                   href="{{ route('holiday.edit', $holiday) }}">
+                                                href="{{ route('user.edit', $user) }}">
                                                     <i class="fas fa-pencil-alt"></i>
                                                     Edit
                                                 </a>
                                                 <button data-toggle="modal" data-target="#deleteModal"
-                                                        data-id="{{ $holiday->id }}" class="btn btn-danger btn-sm">
+                                                        data-id="{{ $user->id }}" class="btn btn-danger btn-sm">
                                                     <i class="fas fa-trash"></i>
                                                     Borrar
                                                 </button>
@@ -94,7 +87,7 @@
                             </div>
                         </div>
 
-                        {{ $holidays->links() }}
+                        {{ $users->links() }}
 
                         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
                              aria-labelledby="exampleModalLabel"
@@ -114,7 +107,7 @@
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
                                             Cerrar
                                         </button>
-                                        <form id="formDelete" data-action="{{ route('holiday.destroy', 0) }}"
+                                        <form id="formDelete" data-action="{{ route('user.destroy', 0) }}"
                                               method="POST">
                                             @method('DELETE')
                                             @csrf
@@ -152,7 +145,7 @@
                 $('#formDelete').attr('action', action)
 
                 var modal = $(this)
-                modal.find('.modal-title').text('Vas a borrar la Solicitud: ' + id)
+                modal.find('.modal-title').text('Vas a borrar el Usuario: ' + id)
             });
         };
     </script>

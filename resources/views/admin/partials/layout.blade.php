@@ -182,6 +182,14 @@ to get the desired effect
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
+                        <a href="{{url('/admin/user')}}" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Users
+                            </p>
+                        </a>
+                    </li>     
+                    <li class="nav-item">
                         <a href="{{url('/admin/calendar')}}" class="nav-link">
                             <i class="nav-icon fas fa-calendar-alt"></i>
                             <p>
