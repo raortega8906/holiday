@@ -33,6 +33,13 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
+        $users = User::all();
+        $email = $request->input('email');
+        foreach ($users as $u){
+            if($u->email == $email){
+                return back()->with('status-error', 'Ya el email está  registrado');
+            }
+        }
         User::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -40,7 +47,6 @@ class UserController extends Controller
             'rol_id' => $request['rol_id']
         ]);
         return back()->with('status', 'Usuario creado con éxito');
-//        return view('admin.user.create', ['user' => new User()]);
     }
 
     public function show(User $user)

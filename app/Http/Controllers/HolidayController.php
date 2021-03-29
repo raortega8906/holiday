@@ -42,7 +42,8 @@ class HolidayController extends Controller
             return back()->with('status', 'Solicitud creada con éxito');
         }
         else{
-            return back()->with('status-error', 'Error al introducir las fechas');
+            return back()->with('status-error', 'La fecha de inicio de vacaciones no puede ser posterior o igual
+            a la fecha final de vacaciones');
         }
     }
 
