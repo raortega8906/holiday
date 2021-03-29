@@ -55,11 +55,11 @@
                                     @csrf
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="name">Empleado:</label>
-                                        <input type="text" class="form-control" name="name" id="name" value="{{ old('title', $holiday->name) }}">
+                                        <input type="text" class="form-control" name="name" id="name" value="{{ old('title', $holiday->name) }}" readonly>
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="email">Correo electrónico:</label>
-                                        <input type="email" class="form-control" name="email" id="email" value="{{ old('title', $holiday->email) }}">
+                                        <input type="email" class="form-control" name="email" id="email" value="{{ old('title', $holiday->email) }}" readonly>
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="reason">Razón de la solicitud:</label>
@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="status">Estado de la solicitud</label>
-                                        <select class="form-control" name="status" id="status" value="">
+                                        <select class="form-control" name="status" id="status">
                                             <option>Esperando</option>
                                             <option {{ $holiday->status == 'Aprobadas' ? 'selected="selected"' : '' }}>Aprobadas</option>
                                             <option {{ $holiday->status == 'Denegadas' ? 'selected="selected"' : '' }}>Denegadas</option>
