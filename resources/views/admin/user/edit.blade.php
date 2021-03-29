@@ -23,6 +23,8 @@
         </div>
         <!-- /.content-header -->
 
+        @include('admin.partials.session-flash-status')
+
         <div class="content">
             <div class="container-fluid">
                 <div class="row">

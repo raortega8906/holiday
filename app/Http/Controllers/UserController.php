@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,16 +19,28 @@ class UserController extends Controller
         return view('admin.user.index', ['users' => $users]);
     }
 
+//    public function create(Request $request)
+//    {
+//        $dataValidated = $request->validate([
+//            'name' => 'required|min:5|max:500',
+//            'email' => 'required|min:5|max:500',
+//            'password' => 'required|min:5|max:500',
+//            'rol_id' => 'required|min:5|max:500'
+//        ]);
+//        User::create($dataValidated);
+//        return back()->with('status', 'Usuario creado con éxito');
+//    }
+
     public function create(Request $request)
     {
-        $dataValidated = $request->validate([
-            'name' => 'required|min:5|max:500',
-            'email' => 'required|min:5|max:500',
-            'password' => 'required|min:5|max:500',
-            'rol_id' => 'required|min:5|max:500'
+        User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'rol_id' => $request['rol_id']
         ]);
-        dd(User::create($dataValidated));
         return back()->with('status', 'Usuario creado con éxito');
+//        return view('admin.user.create', ['user' => new User()]);
     }
 
     public function show(User $user)
@@ -42,11 +55,9 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $dataValidated = $request->validate([
-            'rol_id' => 'required|min:5|max:50'
+        $user->update([
+            'rol_id' => $request['rol_id']
         ]);
-        $user->update($dataValidated);
-        dd($user);
         return back()->with('status', 'Usuario actualizado con éxito');
     }
 
