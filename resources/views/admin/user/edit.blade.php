@@ -9,13 +9,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">User Edit</h1>
+                        <h1 class="m-0 text-dark">Editar Empleados</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/admin/calendar">Home</a></li>
-                            <li class="breadcrumb-item active">User</li>
-                            <li class="breadcrumb-item active">Edit</li>
+                            <li class="breadcrumb-item active">Empleados</li>
+                            <li class="breadcrumb-item active">Editar</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -31,7 +31,7 @@
                     <div class="col-lg-12">
                         <div class="card card-secondary">
                             <div class="card-header border-0">
-                                <h3 class="card-title">Actualizar Rol Empleado</h3>
+                                <h3 class="card-title">Actualizar Rol del Empleado</h3>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"
                                             data-toggle="tooltip" title="Collapse">

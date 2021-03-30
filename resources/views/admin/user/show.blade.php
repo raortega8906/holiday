@@ -9,13 +9,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">User View</h1>
+                        <h1 class="m-0 text-dark">Ver Empleados</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/admin/calendar">Home</a></li>
-                            <li class="breadcrumb-item active">User</li>
-                            <li class="breadcrumb-item active">View</li>
+                            <li class="breadcrumb-item active">Empleados</li>
+                            <li class="breadcrumb-item active">Ver</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -29,7 +29,7 @@
                     <div class="col-lg-12">
                         <div class="card card-secondary">
                             <div class="card-header border-0">
-                                <h3 class="card-title">Datos Empleado</h3>
+                                <h3 class="card-title">Datos del Empleado</h3>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"
                                             data-toggle="tooltip" title="Collapse">
