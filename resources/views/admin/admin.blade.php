@@ -71,10 +71,11 @@
                                                     <span class="badge badge-danger">Denegadas</span>
                                                 @endif
                                             </td>
-                                            <td>
-                                               <a class="btn btn-primary btn-sm" href="{{ route('holiday.show', $holiday) }}">
-                                                    <i class="fas fa-folder"></i>
-                                                    Ver
+                                            <td class="float-right">
+                                                <a class="btn btn-primary btn-sm"
+                                                   href="{{ route('holiday.show', $holiday) }}">
+                                                   <i class="fas fa-folder"></i>
+                                                   Ver
                                                 </a>
                                                 <a class="btn btn-info btn-sm"
                                                    href="{{ route('holiday.edit', $holiday) }}">

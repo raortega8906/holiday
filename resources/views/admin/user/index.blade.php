@@ -53,7 +53,7 @@
                                         <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Correo Electrónico</th>
-                                        <th>Rol del Empleado</th>
+                                        <th>Rol</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -62,8 +62,13 @@
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name  }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->rol_id }}</td>
-                                            <td>
+                                            <td>@if($user->rol_id == 1)
+                                                    Administrador
+                                                @else
+                                                    Empleado
+                                                @endif
+                                            </td>
+                                            <td class="float-right">
                                                 <a class="btn btn-primary btn-sm"
                                                 href="{{ route('user.show', $user) }}">
                                                     <i class="fas fa-folder"></i>
