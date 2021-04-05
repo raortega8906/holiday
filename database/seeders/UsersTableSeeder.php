@@ -16,8 +16,9 @@ class UsersTableSeeder extends Seeder
     {
         //
         User::create([
+        	'id' => 1,
         	'rol_id' => 1,
-            'name' => 'Rafael A. Ortega',
+            'name' => 'Admin',
             'email' => 'ceiforestudios87@gmail.com',
             'password' => 'Heroku.2021'
         ]);
