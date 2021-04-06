@@ -18,10 +18,10 @@ class UsersTableSeeder extends Seeder
         $id = $this->generateTokenID();
         $user1 = [
             'id' => $id,
-            'rol_id' => '2',
+            'rol_id' => '1',
             'name' => 'Admin',
-            'email' => 'ceifor@gmail.com',
-            'password' => Hash::make('123123')
+            'email' => 'ceiforestudios87@gmail.com',
+            'password' => Hash::make('Heroku.2021')
         ];
 
         User::create($user1);
