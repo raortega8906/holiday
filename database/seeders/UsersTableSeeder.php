@@ -15,12 +15,15 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        User::create([
-        	'id' => 1,
-        	'rol_id' => 1,
+        $id = $this->generateTokenID();
+        $user1 = [
+            'id' => $id,
+            'rol_id' => '2',
             'name' => 'Admin',
-            'email' => 'ceiforestudios87@gmail.com',
-            'password' => 'Heroku.2021'
-        ]);
+            'email' => 'ceiforestudios@gmail.com',
+            'password' => Hash::make('Heroku.2021')
+        ];
+
+        User::create($user1);
     }
 }
