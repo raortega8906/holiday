@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             'rol_id' => '2',
             'name' => 'Admin',
             'email' => 'ceiforestudios@gmail.com',
-            'password' => Hash::make('Heroku.2021')
+            'password' => '123123'
         ];
 
         User::create($user1);
