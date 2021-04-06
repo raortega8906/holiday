@@ -20,8 +20,8 @@ class UsersTableSeeder extends Seeder
             'id' => $id,
             'rol_id' => '2',
             'name' => 'Admin',
-            'email' => 'ceiforestudios@gmail.com',
-            'password' => '123123'
+            'email' => 'ceifor@gmail.com',
+            'password' => Hash::make('123123')
         ];
 
         User::create($user1);
