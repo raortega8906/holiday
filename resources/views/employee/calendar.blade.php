@@ -69,6 +69,14 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
+                        <a href="{{url('/admin/user')}}" class="nav-link brand-link">
+                            <i class="nav-icon fas fa-user ml-2 mb-3"></i>
+                            <p>
+                                Empleados
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{url('/admin/calendar')}}" class="nav-link">
                             <i class="nav-icon fas fa-calendar-alt"></i>
                             <p>
@@ -85,6 +93,12 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{url('/admin')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Vacaciones | Historial</p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{url('/admin/holiday')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
