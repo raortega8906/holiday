@@ -50,7 +50,6 @@
                                 <table class="table table-striped table-valign-middle">
                                     <thead>
                                     <tr>
-                                        <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Correo Electrónico</th>
                                         <th>Rol</th>
@@ -59,7 +58,6 @@
                                     <tbody>
                                     @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ $user->id }}</td>
                                             <td>{{ $user->name  }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>@if($user->rol_id == 1)
