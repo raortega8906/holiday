@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HolidayController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckRolAdmin;
 
@@ -34,7 +36,7 @@ Route::middleware('auth')->group(function () {
     });
 
     // Ruta de creación de vacaciones (Empleados)
-    Route::post('/admin/create', [App\Http\Controllers\HolidayController::class, 'create'])->name('holiday.create');
+    Route::post('/admin/create', [HolidayController::class, 'create'])->name('holiday.create');
 
     // Solo Admin
     Route::middleware([CheckRolAdmin::class])->group(function () {
@@ -45,30 +47,26 @@ Route::middleware('auth')->group(function () {
             return view('admin.user.create');
         });
 
-        // Rutas de usuarios
-        Route::get('/admin/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+        
+        Route::group(['prefix' => 'admin'], function() {
 
-        Route::post('/admin/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
+            // Rutas de usuarios
+            Route::get('/user', [UserController::class, 'index'])->name('user.index');
+            Route::post('/user/create', [UserController::class, 'create'])->name('user.create');
+            Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+            Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+            Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
+            Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
 
-        Route::delete('/admin/user/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
+            // Rutas de vacaciones
+            Route::get('/', [HolidayController::class, 'index'])->name('holiday.index');
+            Route::delete('{holiday}', [HolidayController::class, 'destroy'])->name('holiday.destroy');
+            Route::get('/{holiday}/edit', [HolidayController::class, 'edit'])->name('holiday.edit');
+            Route::get('/{holiday}', [HolidayController::class, 'show'])->name('holiday.show');
+            Route::put('/{holiday}', [HolidayController::class, 'update'])->name('holiday.update');
 
-        Route::get('/admin/user/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
-
-        Route::get('/admin/user/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('user.show');
-
-        Route::put('/admin/user/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
-
-        // Rutas de vacaciones
-        Route::get('/admin', [App\Http\Controllers\HolidayController::class, 'index'])->name('holiday.index');
-
-        Route::delete('/admin/{holiday}', [App\Http\Controllers\HolidayController::class, 'destroy'])->name('holiday.destroy');
-
-        Route::get('/admin/{holiday}/edit', [App\Http\Controllers\HolidayController::class, 'edit'])->name('holiday.edit');
-
-        Route::get('/admin/{holiday}', [App\Http\Controllers\HolidayController::class, 'show'])->name('holiday.show');
-
-        Route::put('/admin/{holiday}', [App\Http\Controllers\HolidayController::class, 'update'])->name('holiday.update');
-
+        });
+        
     });
 
 });

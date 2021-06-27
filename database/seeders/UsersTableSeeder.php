@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,27 +14,19 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        $id = $this->generateTokenID();
-        $user1 = [
-            'id' => $id,
-            'rol_id' => '1',
+        User::create([
             'name' => 'Admin',
-            'email' => 'ceiforestudios87@gmail.com',
-            'password' => Hash::make('Heroku.2021')
-        ];
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('password'),
+            'rol_id' => 1
+        ]);
 
-        User::create($user1);
-    }
-
-    // Random generate ID
-    function generateTokenID($length = 9) {
-        $characters = '123456789';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
+    //     User::create([
+    //         'name' => 'Employee',
+    //         'email' => 'user@user.com',
+    //         'password' => bcrypt('password'),
+    //         'rol_id' => 2
+    //     ]);
+    
     }
 }

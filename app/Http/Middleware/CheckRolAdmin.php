@@ -16,10 +16,10 @@ class CheckRolAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->rol->key == 'admin') {
-            # code...
+        if (auth()->user()->rol_id == 1) {
             return $next($request);
         }
+
         return redirect('/');
     }
 }
