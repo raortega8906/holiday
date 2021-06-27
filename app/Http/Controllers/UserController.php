@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('id', 'desc')->paginate(10);
-        return view('admin.user.index', ['users' => $users]);
+        return view('admin.user.index', compact('users'));
     }
 
     public function create(Request $request)
@@ -39,12 +39,12 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        return view('admin.user.show', ['user' => $user]);
+        return view('admin.user.show', compact('user'));
     }
 
     public function edit(User $user)
     {
-        return view('admin.user.edit', ['user' => $user]);
+        return view('admin.user.edit', compact('user'));
     }
 
     public function update(Request $request, User $user)

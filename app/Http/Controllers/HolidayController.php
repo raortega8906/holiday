@@ -18,7 +18,7 @@ class HolidayController extends Controller
     public function index()
     {
         $holidays = Holiday::orderBy('id', 'desc')->paginate(10);
-        return view('admin.admin', ['holidays' => $holidays]);
+        return view('admin.admin', compact('holidays'));
     }
 
     public function create(Request $request)
@@ -49,12 +49,12 @@ class HolidayController extends Controller
 
     public function show(Holiday $holiday)
     {
-        return view('admin.holiday-show', ['holiday' => $holiday]);
+        return view('admin.holiday-show', compact('holiday'));
     }
 
     public function edit(Holiday $holiday)
     {
-        return view('admin.holiday-edit', ['holiday' => $holiday]);
+        return view('admin.holiday-edit', compact('holiday'));
     }
 
     public function update(Request $request, Holiday $holiday)
@@ -79,7 +79,6 @@ class HolidayController extends Controller
 
     public function destroy(Holiday $holiday)
     {
-        // $holiday = Holiday::findOrFail($id);
         $holiday->delete();
         return back()->with('status', 'Solicitud eliminada con éxito');
     }
