@@ -21,7 +21,7 @@ class RolsTableSeeder extends Seeder
             'description' => 'Todos los permisos'
         ]);
         Rol::create([
-        	'id' => 2,
+        	'id' => 0,
             'key' => 'employee',
             'name' => 'Rol Employee',
             'description' => 'Permisos de consulta y solicitud'
