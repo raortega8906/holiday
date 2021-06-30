@@ -49,13 +49,17 @@ Route::group(['middleware' => 'auth'], function() {
         
         Route::group(['prefix' => 'admin'], function() {
 
-            // Rutas de usuarios
-            Route::get('/user', [UserController::class, 'index'])->name('user.index');
-            Route::post('/user/create', [UserController::class, 'create'])->name('user.create');
-            Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-            Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
-            Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
-            Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
+            Route::group(['prefix' => 'user'], function() {
+
+                // Rutas de usuarios
+                Route::get('/', [UserController::class, 'index'])->name('user.index');
+                Route::post('/create', [UserController::class, 'create'])->name('user.create');
+                Route::delete('/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+                Route::get('/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+                Route::get('/{user}', [UserController::class, 'show'])->name('user.show');
+                Route::put('/{user}', [UserController::class, 'update'])->name('user.update');
+
+            });
 
             // Rutas de vacaciones
             Route::get('/', [HolidayController::class, 'index'])->name('holiday.index');
