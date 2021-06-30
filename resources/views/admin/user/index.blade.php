@@ -60,7 +60,7 @@
                                         <tr>
                                             <td>{{ $user->name  }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>@if($user->rol_id == 1)
+                                            <td>@if($user->is_admin == 1)
                                                     Administrador
                                                 @else
                                                     Empleado

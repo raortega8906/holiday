@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckRolAdmin;
+use App\Http\Middleware\IsAdminMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,6 +65,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         // 'rol.admin' => \App\Http\Middleware\CheckRolAdmin::class
-        'rol_id' => CheckRolAdmin::class
+        'rol_id' => CheckRolAdmin::class,
+        'is_admin' => IsAdminMiddleware::class
     ];
 }

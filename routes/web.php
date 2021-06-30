@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware('auth')->group(function () {
+Route::group(['middleware' => 'auth'], function() {
 
     // Ruta de vista del calendario (Empleados)
     Route::get('/admin/calendar', function () {
@@ -39,14 +39,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/create', [HolidayController::class, 'create'])->name('holiday.create');
 
     // Solo Admin
-    Route::middleware([CheckRolAdmin::class])->group(function () {
+    Route::group(['middleware' => 'is_admin'], function() {
 
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
         Route::get('/admin/user/create', function () {
             return view('admin.user.create');
         });
-
         
         Route::group(['prefix' => 'admin'], function() {
 
