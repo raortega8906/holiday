@@ -55,8 +55,8 @@
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="status">Rol del empleado</label>
                                         <select class="form-control" name="status" id="status" value="" disabled>
-                                            <option>2</option>
-                                            <option {{ $user->rol_id == 1 ? 'selected="selected"' : '' }} >1</option>
+                                            <option>0</option>
+                                            <option {{ $user->is_admin == 1 ? 'selected="selected"' : '' }} >1</option>
                                         </select>
                                     </div>
                             </div>

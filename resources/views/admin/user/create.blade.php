@@ -66,9 +66,9 @@
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
-                                        <label for="rol_id">Rol del empleado</label>
-                                        <select class="form-control" name="rol_id" id="rol_id">
-                                            <option>2</option>
+                                        <label for="is_admin">Rol del empleado</label>
+                                        <select class="form-control" name="is_admin" id="is_admin">
+                                            <option>0</option>
                                             <option>1</option>
                                         </select>
                                     </div>

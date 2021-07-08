@@ -19,7 +19,6 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'holiday_id',
-        // 'rol_id',
         'email',
         'password',
         'is_admin'
@@ -43,12 +42,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function rol(){
-        return $this->belongsTo(Rol::class);
-    }
-
-    public function holiday(){
-        return $this->belongsTo(Holiday::class);
-    }
 }

@@ -58,10 +58,10 @@
                                         <input type="text" class="form-control" name="password" id="password" value="{{ old('title', '********') }}" disabled>
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
-                                        <label for="rol_id">Rol del empleado</label>
-                                        <select class="form-control" name="rol_id" id="rol_id">
-                                            <option value="2">2</option>
-                                            <option value="1" {{ $user->rol_id == 1 ? 'selected="selected"' : '' }}>1</option>
+                                        <label for="is_admin">Rol del empleado</label>
+                                        <select class="form-control" name="is_admin" id="is_admin">
+                                            <option value="0">0</option>
+                                            <option value="1" {{ $user->is_admin == 1 ? 'selected="selected"' : '' }}>1</option>
                                         </select>
                                     </div>
                                     <input type="submit"

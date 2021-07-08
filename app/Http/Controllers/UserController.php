@@ -27,7 +27,7 @@ class UserController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'rol_id' => $request['rol_id']
+            'is_admin' => $request['is_admin']
         ]);
         return back()->with('status', 'Usuario creado con éxito');
     }
@@ -45,7 +45,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update([
-            'rol_id' => $request['rol_id']
+            'is_admin' => $request['is_admin']
         ]);
         return back()->with('status', 'Usuario actualizado con éxito');
     }
