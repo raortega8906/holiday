@@ -60,25 +60,21 @@
                                         <tr>
                                             <td>{{ $user->name  }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>@if($user->is_admin == 1)
+                                            <td>
+                                                @if($user->is_admin == 1)
                                                     Administrador
                                                 @else
                                                     Empleado
                                                 @endif
                                             </td>
-                                            <td class="float-right">
-                                                <a class="btn btn-primary btn-sm"
-                                                href="{{ route('user.show', $user) }}">
-                                                    <i class="fas fa-folder"></i>
-                                                    Ver
-                                                </a>
-                                                <a class="btn btn-info btn-sm"
-                                                href="{{ route('user.edit', $user) }}">
+                                            <td class="float-right d-flex">
+                                                <a class="btn btn-info btn-sm mx-1"
+                                                    href="{{ route('user.edit', $user) }}">
                                                     <i class="fas fa-pencil-alt"></i>
                                                     Editar
                                                 </a>
                                                 <button data-toggle="modal" data-target="#deleteModal"
-                                                        data-id="{{ $user->id }}" class="btn btn-danger btn-sm">
+                                                    data-id="{{ $user->id }}" class="btn btn-danger btn-sm">
                                                     <i class="fas fa-trash"></i>
                                                     Borrar
                                                 </button>

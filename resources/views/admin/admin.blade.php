@@ -71,23 +71,25 @@
                                                     <span class="badge badge-danger">Denegadas</span>
                                                 @endif
                                             </td>
-                                            <td class="float-right">
-                                                <a class="btn btn-primary btn-sm"
-                                                   href="{{ route('holiday.show', $holiday) }}">
-                                                   <i class="fas fa-folder"></i>
-                                                   Ver
-                                                </a>
-                                                <a class="btn btn-info btn-sm"
-                                                   href="{{ route('holiday.edit', $holiday) }}">
-                                                    <i class="fas fa-pencil-alt"></i>
-                                                    Editar
-                                                </a>
-                                                <button data-toggle="modal" data-target="#deleteModal"
-                                                        data-id="{{ $holiday->id }}" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                    Borrar
-                                                </button>
-                                            </td>
+                                            @if (auth()->user()->is_admin)
+                                                <td class="float-right d-flex mx-1">
+                                                    <a class="btn btn-primary btn-sm"
+                                                    href="{{ route('holiday.show', $holiday) }}">
+                                                    <i class="fas fa-folder"></i>
+                                                    Ver
+                                                    </a>
+                                                    <a class="btn btn-info btn-sm mx-1"
+                                                    href="{{ route('holiday.edit', $holiday) }}">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        Editar
+                                                    </a>
+                                                    <button data-toggle="modal" data-target="#deleteModal"
+                                                            data-id="{{ $holiday->id }}" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                        Borrar
+                                                    </button>
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                     </tbody>

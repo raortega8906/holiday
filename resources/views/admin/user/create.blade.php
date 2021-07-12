@@ -46,30 +46,30 @@
                                     @csrf
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="name">Nombre:</label>
-                                        <input type="text" class="form-control" name="name" id="name" value="">
+                                        <input type="text" class="form-control" name="name" id="name">
                                         @error('name')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="email">Correo electrónico:</label>
-                                        <input type="email" class="form-control" name="email" id="email" value="">
+                                        <input type="email" class="form-control" name="email" id="email">
                                         @error('email')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="password">Contraseña:</label>
-                                        <input type="text" class="form-control" name="password" id="password" value="">
-                                        @error('name')
+                                        <input type="password" class="form-control" name="password" id="password">
+                                        @error('password')
                                         <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3 mt-3 ml-3 row-cols-lg-3">
                                         <label for="is_admin">Rol del empleado</label>
                                         <select class="form-control" name="is_admin" id="is_admin">
-                                            <option>0</option>
-                                            <option>1</option>
+                                            <option value="0">Empleado</option>
+                                            <option value="1">Administrador</option>
                                         </select>
                                     </div>
                                     <input type="submit"

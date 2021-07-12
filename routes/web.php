@@ -3,8 +3,6 @@
 use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\CheckRolAdmin;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -18,59 +16,56 @@ use App\Http\Middleware\CheckRolAdmin;
 */
 Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 // Ruta principal login
 Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
 
     // Ruta de vista del calendario (Empleados)
-    Route::get('/admin/calendar', function () {
+    Route::get('/calendar', function () {
         return view('employee.calendar');
     });
 
     // Ruta de vista de creación de vacaciones (Empleados)
-    Route::get('/admin/holiday', function () {
+    Route::get('/holiday', function () {
         return view('employee.holiday');
     });
 
+    // Ruta historial de vacaciones (Admin: todas, Empleados: personales)
+    Route::get('/', [HolidayController::class, 'index'])->name('holiday.index');
+
     // Ruta de creación de vacaciones (Empleados)
-    Route::post('/admin/create', [HolidayController::class, 'create'])->name('holiday.create');
+    Route::post('/create', [HolidayController::class, 'create'])->name('holiday.create');
 
     // Solo Admin
     Route::group(['middleware' => 'is_admin'], function() {
 
-        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        Route::group(['prefix' => 'user'], function() {
 
-        Route::get('/admin/user/create', function () {
-            return view('admin.user.create');
-        });
-        
-        Route::group(['prefix' => 'admin'], function() {
-
-            Route::group(['prefix' => 'user'], function() {
-
-                // Rutas de usuarios
-                Route::get('/', [UserController::class, 'index'])->name('user.index');
-                Route::post('/create', [UserController::class, 'create'])->name('user.create');
-                Route::delete('/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-                Route::get('/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
-                Route::get('/{user}', [UserController::class, 'show'])->name('user.show');
-                Route::put('/{user}', [UserController::class, 'update'])->name('user.update');
-
+            // Ruta de vista de creación de usuarios
+            Route::get('/create', function () {
+                return view('admin.user.create');
             });
 
-            // Rutas de vacaciones
-            Route::get('/', [HolidayController::class, 'index'])->name('holiday.index');
-            Route::delete('{holiday}', [HolidayController::class, 'destroy'])->name('holiday.destroy');
-            Route::get('/{holiday}/edit', [HolidayController::class, 'edit'])->name('holiday.edit');
-            Route::get('/{holiday}', [HolidayController::class, 'show'])->name('holiday.show');
-            Route::put('/{holiday}', [HolidayController::class, 'update'])->name('holiday.update');
+            // Rutas de usuarios
+            Route::get('/', [UserController::class, 'index'])->name('user.index');
+            Route::post('/create', [UserController::class, 'create'])->name('user.create');
+            Route::get('/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+            Route::put('/{user}', [UserController::class, 'update'])->name('user.update');
+            Route::delete('/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
         });
+
+        // Rutas de vacaciones
+        Route::get('/{holiday}', [HolidayController::class, 'show'])->name('holiday.show');
+        Route::get('/{holiday}/edit', [HolidayController::class, 'edit'])->name('holiday.edit');
+        Route::put('/{holiday}', [HolidayController::class, 'update'])->name('holiday.update');
+        Route::delete('{holiday}', [HolidayController::class, 'destroy'])->name('holiday.destroy');
         
     });
 
 });
-
