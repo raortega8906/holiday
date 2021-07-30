@@ -1,6 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-# Sobre “Laravel-Holiday”
+# Sobre Holiday
 
 Holidays es un sistema de petición de vacaciones, que le ayuda al usuario a hacer petición de vacaciones, ser aprobadas o negadas,    etc. El sistema es de código abierto y se puede ver y probar en https://github.com/raortega8906/holiday/
 
