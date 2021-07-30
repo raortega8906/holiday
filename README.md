@@ -40,19 +40,19 @@ No dude en enviar comentarios y problemas encontrados vía email.
 
 ## Como hacerlo
 
-- Insertar proyecto en carpeta vacía -> “git clone https://github.com/raortega8906/holiday/“.
+- Insertar proyecto en carpeta vacía con el comando: git clone https://github.com/raortega8906/holiday/
 - Crear una base de datos vacía.
 - Copie el env.example a .env
 - Configurar base de datos en config/database.php o en su archivo .env.
 - Ejecute los siguientes comandos:
-    composer install
-    php artisan migrate --seed
-    php artisan key:generate
-    npm install
-    npm run dev
+    - composer install
+    - php artisan migrate --seed
+    - php artisan key:generate
+    - npm install
+    - npm run dev
 - Inicie sesión con las credenciales:
-	correo: admin@admin.com
-	pass: password
+	- correo: admin@admin.com
+	- pass: password
 - Como admin podrá crear nuevos usuarios desde el sistema o registrar nuevos usuarios desde la pagina de registro, donde todos los      nuevos usuarios entraran con permiso de “empleado”.
 - Hecho.
 
