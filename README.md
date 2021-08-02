@@ -12,14 +12,14 @@ Holiday es un proyecto de prueba de acceso a prácticas laborales en Madrid. Bá
 
 ## Requerimientos a cumplir
 
-- El empleado podrá escoger dos días (inicio y fin) y agregar la razón o motivo de vacaciones.
-- Una vez cree la solicitud, debe llegar un correo a su jefe indicándole que debe entrar a la aplicación y aprobar o negar dicha solicitud.
-- El jefe podrá entrar a la aplicación y dado su rol podrá ver todas las solicitudes que estén a su cargo.
-- Cuando el jefe decida aprobar o negar dicha solicitud se debe enviar un correo al empleado indicándole la resolución de su solicitud.
-- El empleado podrá ver en su tablero o dashboard un calendario con las vacaciones y el historial de las mismas.
-- El administrador podrá dar permisos, registrar o eliminar nuevos usuarios y es el único que tendrá acceso a todas las funcionalidades del sistema.
-- Para lo anterior deberás crear una base de datos que contenga el requerimiento mencionado (usuarios, roles, solicitudes, etc).
-- Desplegar en un servidor web (Heroku, solución gratuita web).
+* [x] El empleado podrá escoger dos días (inicio y fin) y agregar la razón o motivo de vacaciones.
+* [x] Una vez cree la solicitud, debe llegar un correo a su jefe indicándole que debe entrar a la aplicación y aprobar o negar dicha solicitud.
+* [x] El jefe podrá entrar a la aplicación y dado su rol podrá ver todas las solicitudes que estén a su cargo.
+* [x] Cuando el jefe decida aprobar o negar dicha solicitud se debe enviar un correo al empleado indicándole la resolución de su solicitud.
+* [x] El empleado podrá ver en su tablero o dashboard un calendario con las vacaciones y el historial de las mismas.
+* [x] El administrador podrá dar permisos, registrar o eliminar nuevos usuarios y es el único que tendrá acceso a todas las funcionalidades del sistema.
+* [x] Para lo anterior deberás crear una base de datos que contenga el requerimiento mencionado (usuarios, roles, solicitudes, etc).
+* [x] Desplegar en un servidor web (Heroku, solución gratuita web).
 
 ## Notas añadidas
 
