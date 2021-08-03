@@ -2,15 +2,9 @@
 
 # Holiday
 
-Holiday es un proyecto de prueba de acceso a prácticas laborales en Madrid. Básicamente es un sistema sencillo de petición de vacaciones, que le ayuda al usuario a hacer petición de vacaciones, ser aprobadas o negadas, etc.
+Holiday es un proyecto de prueba de acceso a prácticas laborales. Básicamente es un sistema sencillo de petición de vacaciones, que le ayuda al usuario a hacer petición de vacaciones, ser aprobadas o negadas, etc.
 
----
-
-# Desarrollado en Laravel 8.12.
-
----
-
-## Requerimientos a cumplir
+## Objetivos
 
 * [x] El empleado podrá escoger dos días (inicio y fin) y agregar la razón o motivo de vacaciones.
 * [x] Una vez cree la solicitud, debe llegar un correo a su jefe indicándole que debe entrar a la aplicación y aprobar o negar dicha solicitud.
@@ -30,48 +24,32 @@ Holiday es un proyecto de prueba de acceso a prácticas laborales en Madrid. Bá
 
 En el siguiente video encontrarás como instalar Laravel en Heroku: https://www.youtube.com/watch?v=GE2Kmy8WL3g
 
----
-
 ## Como instalar
+
+Para ejecutar este proyecto es necesario que tenga instalado PHP, MySQL, Apache o Nginx. Para mas información, consulte las recomendaciones de [Laravel](https://laravel.com/docs/8.x).
+
+### Pasos:
 
 1. Clonar el repositorio : `git clone https://github.com/raortega8906/holiday.git`
 2. `$ cd holiday`
 3. `$ composer install`
 4. `$ cp .env.example .env`
 5. `$ php artisan key:generate`
-6. Crear **BD en MySQL** o **SQLite**
-7. **Credenciales de BD** en el archivo `.env`
+6. Crear BD en **MySQL** o **SQLite**
+7. Credenciales de BD en el archivo `.env`
 8. `$ php artisan migrate --seed`
 9. `$ php artisan serve`
 10. Iniciar sesión con:
     - email : `admin@admin.com`
     - password : `password`
 
----
-
-## Importante
-
-Para lo anterior es necesario que tenga PHP, MySQL, etc, instalado localmente en su pc, para otras opciones, consulte las recomendaciones de Laravel.
-
----
-
-## Retroalimentación
-
-No dude en enviar comentarios y problemas encontrados vía email.
-
----
-
 ## Demo desplegado
 
 https://holidaysweb.herokuapp.com/
 
----
-
 ## Licencia 
 
 El proyecto es de código abierto.
-
----
 
 ## Próximos pasos
 
