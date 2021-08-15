@@ -1,62 +1,56 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Holiday
 
-## About Laravel
+Holiday es un proyecto de prueba de acceso a prácticas laborales. Básicamente es un sistema sencillo de petición de vacaciones, que le ayuda al usuario a hacer petición de vacaciones, ser aprobadas o negadas, etc.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Objetivos
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* [x] El empleado podrá escoger dos días (inicio y fin) y agregar la razón o motivo de vacaciones.
+* [x] Una vez cree la solicitud, debe llegar un correo a su jefe indicándole que debe entrar a la aplicación y aprobar o negar dicha solicitud.
+* [x] El jefe podrá entrar a la aplicación y dado su rol podrá ver todas las solicitudes que estén a su cargo.
+* [x] Cuando el jefe decida aprobar o negar dicha solicitud se debe enviar un correo al empleado indicándole la resolución de su solicitud.
+* [x] El empleado podrá ver en su tablero o dashboard un calendario con las vacaciones y el historial de las mismas.
+* [x] El administrador podrá dar permisos, registrar o eliminar nuevos usuarios y es el único que tendrá acceso a todas las funcionalidades del sistema.
+* [x] Para lo anterior deberás crear una base de datos que contenga el requerimiento mencionado (usuarios, roles, solicitudes, etc).
+* [x] Desplegar en un servidor web (Heroku, solución gratuita web).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Notas añadidas
 
-## Learning Laravel
+- No evaluaremos diseño pero sí funcionalidad y técnica. Podrás usar AdminLTE como base para facilitar el trabajo de diseño y estilos.
+- Por último necesitaremos la documentación del código y ver la app en el servidor creado.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Recursos para la creación del servidor web
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+En el siguiente video encontrarás como instalar Laravel en Heroku: https://www.youtube.com/watch?v=GE2Kmy8WL3g
 
-## Laravel Sponsors
+## Como instalar
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Para ejecutar este proyecto es necesario que tenga instalado PHP, MySQL, Apache o Nginx. Para mas información, consulte las recomendaciones de [Laravel](https://laravel.com/docs/8.x).
 
-### Premium Partners
+### Pasos:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+1. Clonar el repositorio : `git clone https://github.com/raortega8906/holiday.git`
+2. `$ cd holiday`
+3. `$ composer install`
+4. `$ cp .env.example .env`
+5. `$ php artisan key:generate`
+6. Crear BD en **MySQL** o **SQLite**
+7. Credenciales de BD en el archivo `.env`
+8. `$ php artisan migrate --seed`
+9. `$ php artisan serve`
+10. Iniciar sesión con:
+    - email : `admin@admin.com`
+    - password : `password`
 
-## Contributing
+## Demo desplegado
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+https://holidaysweb.herokuapp.com/
 
-## Code of Conduct
+## Licencia 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+El proyecto es de código abierto.
 
-## Security Vulnerabilities
+## Próximos pasos
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Ahora puede comenzar a usar Holiday libremente.
