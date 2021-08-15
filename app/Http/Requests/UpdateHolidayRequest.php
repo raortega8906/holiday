@@ -24,6 +24,8 @@ class UpdateHolidayRequest extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'required|min:5|max:500',
+            'email' => 'required|min:5|max:500',
             'status' => 'required'
         ];
     }
