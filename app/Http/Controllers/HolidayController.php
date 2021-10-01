@@ -16,6 +16,7 @@ class HolidayController extends Controller
         if (!auth()->user()->is_admin) {
             $email = auth()->user()->email;
             $holidays = Holiday::orderBy('id', 'desc')->where('email', '=', $email)->paginate(10);
+            
             return view('admin.admin', compact('holidays'));
         }
 
@@ -30,7 +31,7 @@ class HolidayController extends Controller
         $ini = strtotime($holidays['beginning']);
         $end = strtotime($holidays['finished']);
 
-        if ($ini < $end){
+        if ($ini < $end) {
             Holiday::create($holidays);
             $name = $holidays['name'];
             $email = $holidays['email'];
@@ -38,8 +39,8 @@ class HolidayController extends Controller
             Mail::to('ceiforestudios87@gmail.com')->send(new TestMail($data));
 
             return back()->with('status', 'Solicitud creada con éxito');
-        }
-        else{
+        } else {
+
             return back()->with('status-error', 'La fecha de inicio de vacaciones no puede ser posterior o igual
             a la fecha final de vacaciones');
         }
@@ -60,15 +61,16 @@ class HolidayController extends Controller
         $holidays = $request->validated();
         $status = $holidays['status'];
 
-        if ($status != 'Esperando'){
+        if ($status != 'Esperando') {
             $holiday->update($holidays);
             $name = $holidays['name'];
             $email = $holidays['email'];
             $data = ['name' => $name, 'email' => $email, 'status' => $status];
             Mail::to($email)->send(new ResponseMail($data));
+
             return back()->with('status', 'Solicitud actualizada con éxito');
-        }
-        else{
+        } else {
+
             return back()->with('status-error', 'Solicitud sin respuesta');
         }
     }
