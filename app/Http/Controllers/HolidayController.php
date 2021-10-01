@@ -16,7 +16,7 @@ class HolidayController extends Controller
         if (!auth()->user()->is_admin) {
             $email = auth()->user()->email;
             $holidays = Holiday::orderBy('id', 'desc')->where('email', '=', $email)->paginate(10);
-            
+
             return view('admin.admin', compact('holidays'));
         }
 
