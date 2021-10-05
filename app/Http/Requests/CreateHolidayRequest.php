@@ -26,6 +26,9 @@ class CreateHolidayRequest extends FormRequest
         return [
             'name' => 'required|min:5|max:500',
             'email' => 'required|min:5|max:500',
+            'reason' => 'required',
+            'beginning' => 'required',
+            'finished' => 'required',
             'status' => 'required'
         ];
     }

@@ -17,4 +17,9 @@ class Holiday extends Model
         'finished',
         'status'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
