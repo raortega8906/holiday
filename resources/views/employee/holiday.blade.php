@@ -130,10 +130,9 @@
         </div>
         <!-- /.content-header -->
 
-        @include('admin.partials.session-flash-status-error')
-
         <div class="content">
             <div class="container-fluid">
+                @include('admin.partials.session-flash-status-error')
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card card-secondary">

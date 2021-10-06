@@ -27,11 +27,10 @@
             Crear
         </a>
 
-    @include('admin.partials.session-flash-status')
-
     <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
+                @include('admin.partials.session-flash-status')
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card card-secondary">

@@ -31,7 +31,7 @@ class HolidayController extends Controller
         $end = strtotime($holidays['finished']);
 
         if ($ini < $end){
-            Holiday::create($holidays);
+            auth()->user()->holidays()->create($holidays);
             $name = $holidays['name'];
             $email = $holidays['email'];
             $data = ['admin' => 'Admin', 'name' => $name, 'email' => $email];
