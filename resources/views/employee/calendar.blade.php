@@ -313,7 +313,7 @@
             events: [
                     <?php
                         foreach ($global['holidays'] as $key => $holiday) {
-                            if ($holiday->email == Auth::user()->email && $holiday->status == 'Aprobadas') {
+                            if ($holiday->email == auth()->user()->email && $holiday->status == 'Aprobadas') {
                                 $end = date('Y-m-d', strtotime($holiday->finished."+ 1 days"));
                     ?>
                                 {
