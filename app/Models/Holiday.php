@@ -15,7 +15,8 @@ class Holiday extends Model
         'reason',
         'beginning',
         'finished',
-        'status'
+        'status',
+        'user_id'
     ];
 
     public function user()
