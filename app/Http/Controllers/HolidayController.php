@@ -82,7 +82,7 @@ class HolidayController extends Controller
 
     public static function showHolidays()
     {
-        $global['holidays'] = Holiday::all();
+        $global['holidays'] = auth()->user()->holidays;
 
         return $global;
     }
