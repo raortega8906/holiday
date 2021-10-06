@@ -48,8 +48,9 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        $user->holidays()->delete();
         $user->delete();
-        
+
         return back()->with('status', 'Usuario eliminado con éxito');
     }
 }
