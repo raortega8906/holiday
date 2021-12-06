@@ -17,7 +17,7 @@ Holiday es un proyecto de prueba de acceso a prácticas laborales. Básicamente 
 
 ## Notas añadidas
 
-- No evaluaremos diseño pero sí funcionalidad y técnica. Podrás usar AdminLTE como base para facilitar el trabajo de diseño y estilos.
+- No se evalúa diseño pero sí funcionalidad y técnica. Se proda usar AdminLTE como base para facilitar el trabajo de diseño y estilos.
 - Por último necesitaremos la documentación del código y ver la app en el servidor creado.
 
 ## Recursos para la creación del servidor web
