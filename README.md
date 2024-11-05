@@ -2,55 +2,55 @@
 
 # Holiday
 
-Holiday es un proyecto de prueba de acceso a prácticas laborales. Básicamente es un sistema sencillo de petición de vacaciones, que le ayuda al usuario a hacer petición de vacaciones, ser aprobadas o negadas, etc.
+Holiday is a trial project for internship access. It’s a simple vacation request system that helps users to request vacations, get approvals or denials, etc.
 
-## Objetivos
+## Objectives
 
-* [x] El empleado podrá escoger dos días (inicio y fin) y agregar la razón o motivo de vacaciones.
-* [x] Una vez cree la solicitud, debe llegar un correo a su jefe indicándole que debe entrar a la aplicación y aprobar o negar dicha solicitud.
-* [x] El jefe podrá entrar a la aplicación y dado su rol podrá ver todas las solicitudes que estén a su cargo.
-* [x] Cuando el jefe decida aprobar o negar dicha solicitud se debe enviar un correo al empleado indicándole la resolución de su solicitud.
-* [x] El empleado podrá ver en su tablero o dashboard un calendario con las vacaciones y el historial de las mismas.
-* [x] El administrador podrá dar permisos, registrar o eliminar nuevos usuarios y es el único que tendrá acceso a todas las funcionalidades del sistema.
-* [x] Para lo anterior deberás crear una base de datos que contenga el requerimiento mencionado (usuarios, roles, solicitudes, etc).
-* [x] Desplegar en un servidor web (Heroku, solución gratuita web).
+* [x] The employee can select two dates (start and end) and add a reason for the vacation.
+* [x] Once the request is created, an email should be sent to the employee's manager notifying them to log into the application to approve or deny the request.
+* [x] The manager can log into the application and, based on their role, see all requests under their charge.
+* [x] When the manager decides to approve or deny the request, an email should be sent to the employee informing them of the decision.
+* [x] The employee can view a calendar and history of vacation requests on their dashboard.
+* [x] The administrator can grant permissions, register or delete users, and is the only one with access to all system functionalities.
+* [x] A database should be created containing the mentioned requirements (users, roles, requests, etc).
+* [x] Deploy on a web server (Heroku, free web solution).
 
-## Notas añadidas
+## Additional Notes
 
-- No se evalúa diseño pero sí funcionalidad y técnica. Se proda usar AdminLTE como base para facilitar el trabajo de diseño y estilos.
-- Por último necesitaremos la documentación del código y ver la app en el servidor creado.
+- Design is not evaluated, but functionality and technique are. You may use AdminLTE as a base to facilitate design and styling.
+- Finally, code documentation and a live demo on the server are required.
 
-## Recursos para la creación del servidor web
+## Resources for creating the web server
 
-En el siguiente video encontrarás como instalar Laravel en Heroku: https://www.youtube.com/watch?v=GE2Kmy8WL3g
+In the following video, you’ll find instructions on how to install Laravel on Heroku: https://www.youtube.com/watch?v=GE2Kmy8WL3g
 
-## Como instalar
+## Installation Instructions
 
-Para ejecutar este proyecto es necesario que tenga instalado PHP, MySQL, Apache o Nginx. Para mas información, consulte las recomendaciones de [Laravel](https://laravel.com/docs/8.x).
+To run this project, you need PHP, MySQL, Apache, or Nginx installed. For more information, refer to [Laravel’s recommendations](https://laravel.com/docs/8.x).
 
-### Pasos:
+### Steps:
 
-1. Clonar el repositorio : `git clone https://github.com/raortega8906/holiday.git`
+1. Clone the repository: `git clone https://github.com/raortega8906/holiday.git`
 2. `$ cd holiday`
 3. `$ composer install`
 4. `$ cp .env.example .env`
 5. `$ php artisan key:generate`
-6. Crear BD en **MySQL** o **SQLite**
-7. Credenciales de BD en el archivo `.env`
+6. Create a database in **MySQL** or **SQLite**
+7. Add database credentials in the `.env` file
 8. `$ php artisan migrate --seed`
 9. `$ php artisan serve`
-10. Iniciar sesión con:
-    - email : `admin@admin.com`
-    - password : `password`
+10. Log in with:
+    - email: `admin@admin.com`
+    - password: `password`
 
-## Demo desplegado
+## Deployed Demo
 
 https://holidays.wpcache.es/
 
-## Licencia 
+## License
 
-El proyecto es de código abierto.
+The project is open source.
 
-## Próximos pasos
+## Next Steps
 
-Ahora puede comenzar a usar Holiday libremente.
+You are now free to start using Holiday.
